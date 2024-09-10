@@ -62,7 +62,6 @@ function Acasa() {
     return (
         <>
             <Header />
-            <div className="spatiuocupatheader relative w-full h-[130px] z-0"></div>
             <div className="slideshow bg-black w-full min-[840px]:h-[550px] h-[450px] flex">
                 <div className="imgslideshow"><img src={principala} alt="principala img" /></div>
                 <div className="imgslideshow"><img src={secundara} alt="imag 2" /></div>

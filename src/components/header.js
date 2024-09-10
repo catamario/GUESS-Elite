@@ -53,6 +53,7 @@ function Header() {
 
 
     return (
+      <>
       <header className="w-[100vw] h-[130px] fixed flex z-40 bg-white drop-shadow-3xl">
       <div className="logo w-[600px] h-full flex items-center sm:justify-center sm:ml-0 ml-[10px] cursor-default">
         <h1 className="font-italianno sm:text-[3.5vw] text-[36px]">GUESS Elite</h1>
@@ -64,7 +65,7 @@ function Header() {
         <a href="/acasa" className="min-[640px]:ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Acasa</a>
         <a href="/acasa#produse" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Produse</a>
         <a href="/politica" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Politica</a>
-        <a href="" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Contact</a>
+        <a href="/contact" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Contact</a>
       </div>
   
       <div className="icons w-[250px] h-full ml-auto flex items-center justify-center">
@@ -99,6 +100,8 @@ function Header() {
         
       </div>
     </header>
+    <div className="spatiuocupatheader relative w-full h-[130px] z-0"></div>
+    </>
     );
   }
 
