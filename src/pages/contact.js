@@ -8,7 +8,7 @@ function Contact()
         <>
         <Header />
         <div className='w-full h-[400px] max-[640px]:h-[200px] relative flex items-center justify-center pl-10 pr-10 '>
-            <div className='bg-[#748F80] overflow-hidden drop-shadow-3xl sm:h-[300px] h-[150px] w-[950px] rounded-full relative flex items-center justify-center'>
+            <div className='bg-[#748F80] overflow-hidden sm:h-[300px] h-[150px] w-[950px] rounded-full relative flex items-center justify-center'>
             <img src={contactimg} className='rounded-full relative min-[640px]:scale-75 max-[640px]:h-[100px] ml-5' />
                 <div className='w-full relative pt-5 sm:pt-10 text-white'>
                 <h3 className='text-white sm:text-base text-xs font-bold text-center relative'>GUESS ELITE shop:</h3>
