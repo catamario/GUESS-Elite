@@ -8,14 +8,14 @@ function Contact()
         <>
         <Header />
         <div className='w-full h-[400px] max-[640px]:h-[200px] relative flex items-center justify-center pl-10 pr-10 '>
-            <div className='bg-[#748F80] overflow-hidden drop-shadow-3xl sm:h-[300px] h-[150px] w-[950px] rounded-full relative flex justify-start'>
-            <img src={contactimg} className='rounded-full relative min-[640px]:scale-75 max-[640px]:w-[175px]' />
+            <div className='bg-[#748F80] overflow-hidden drop-shadow-3xl sm:h-[300px] h-[150px] w-[950px] rounded-full relative flex items-center justify-center'>
+            <img src={contactimg} className='rounded-full relative min-[640px]:scale-75 max-[640px]:h-[100px] ml-5' />
                 <div className='w-full relative pt-5 sm:pt-10 text-white'>
-                <h3 className='text-white md:text-base text-xs font-bold text-center relative'>GUESS ELITE shop:</h3>
-                <br /><br />
-                <h3 className='text-white md:text-base text-xs font-bold text-center relative'>&#x1F4CD; : 123 Consectetur at ligula 10660</h3>
-                <h3 className='text-white md:text-base text-xs font-bold text-center relative'> &#9742; : 010-020-0340</h3>
-                <h3 className='text-white md:text-base text-xs font-bold text-center relative'>&#9432; : info@company.com</h3>
+                <h3 className='text-white sm:text-base text-xs font-bold text-center relative'>GUESS ELITE shop:</h3>
+                <br />
+                <h3 className='text-white sm:text-base text-[10px] font-bold text-center relative'>&#x1F4CD; : 123 Consectetur at ligula 10660</h3>
+                <h3 className='text-white sm:text-base text-[10px] font-bold text-center relative'> &#9742; : 010-020-0340</h3>
+                <h3 className='text-white sm:text-base text-[10px] font-bold text-center relative'>&#9432; : info@company.com</h3>
                 </div>
             </div>
         </div>
