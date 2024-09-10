@@ -73,21 +73,21 @@ function Header() {
           <img 
             src={search} 
             alt="Search" 
-            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 "  
+            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 hover:scale-125 "  
           />
         </a>
-        <a href="">
+        <a href="/account">
           <img 
             src={account} 
             alt="Account" 
-            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 " 
+            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 hover:scale-125" 
           />
         </a>
         <a href="">
           <img 
             src={cart} 
             alt="Cart" 
-            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] " 
+            className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] hover:scale-125" 
           />
         </a>
         
