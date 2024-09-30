@@ -1,36 +1,65 @@
 import Header from '../components/header.js';
 import Footer from '../components/footer.js';
-import registerimg from '../SURSE/imagini-use/register.jpg';
+import { useEffect, useState } from 'react';
 
-function Account()
+function Contact()
 {
+    const [email, setEmail] = useState('');
+
+    useEffect(() => {
+        // Preia email-ul din URL
+        const params = new URLSearchParams(window.location.search);
+        const emailParam = params.get('email');
+        if (emailParam) {
+            setEmail(emailParam);
+        }
+    }, []);
+    
     return(
-<>
-<Header />
-<div className='w-full h-[539px] relative flex items-center justify-center'>
-<div className='relative flex md:w-[800px] md:h-[400px] max-[768px]:h-[300px] w-[400px] rounded-xl drop-shadow-3xl'>
-        <div className='relative flex flex-col h-full w-1/2 bg-gray-300 items-center'>
-        <h1 className='font-bold text-center mt-5 text-5xl font-italianno'>Login</h1>
-            <div className=' relative flex flex-col w-3/4 h-52 mt-2 md:mt-10'>
-            <form>
-                <input type='email' placeholder='&#9993; Enter your email' className='bg-gray-200 w-full h-10 mb-3 drop-shadow-3xl rounded border-[#844E19] border-b-2 text-sm md:text-base' required />
-                <input type='password' placeholder='&#128274; Enter your password' className='bg-gray-200 w-full h-10 drop-shadow-3xl rounded border-[#844E19] border-b-2 text-sm md:text-base' required />
-                <a href='' className='text-sm md:text-base'>Ai uitat parola?</a>
-                <input type='submit' value="LOGIN" className='bg-[#844E19] h-[50px] rounded text-center font-bold w-full mt-2 md:mt-10 '/>
-            </form>
-            <p className='text-center mt-2 text-xs md:text-base cursor-default'>Inca nu ti-ai facut cont? <br /> <a href='' className='font-bold'>Fa-ti acum.</a></p>
+        <>
+        <Header />
+        <div className='w-full relative h-[500px] relative flex flex-col items-center pl-10 pr-10 '>
+
+            {/* PRIMA CASETA */}
+            <div className='w-fit relative h-[200px] flex flex-col items-center top-[5px]'>
+                <div className='text-right'>
+
+                     {/* MESAJUL */}    <h1 className='text-black text-[42px] drop-shadow-3xl cursor-default'>Bine ai venit,</h1>
+                   {/* EMAILUL*/}     <small className='text-black drop-shadow-3xl'>{email}</small>
+
+                </div>
+            </div>
+
+
+
+            {/* A DOUA CASETA */}
+            <div className='max-[1440px]:w-fit w-2/4 relative h-fit rounded-3xl p-2 bg-[#c4c4c4] flex flex-col items-center top-5 cursor-default'>
+                <div className='text-right'>
+
+                     {/* MESAJUL */}    <h3 className='text-white text-[14px] sm:text-[16px] md:text-[20px] text-center drop-shadow-3xl'>Suntem extrem de bucuroși să te avem alături de noi în această comunitate pasionată de eleganță și precizie. Fiecare ceas pe care îl oferim este mai mult decât un simplu accesoriu; este o declarație de stil și o fereastră către un univers de artizanat de înaltă calitate.
+                                        </h3>
+
+                </div>
+            </div>
+    
+<br /> <br /><br /> <br />
+
+            {/* A TREIA CASETA */}
+            <div className='w-fit relative h-[200px] flex flex-col items-center top-[5px]'>
+                <div className='text-left'>
+
+                     {/* MESAJUL */}    <h1 className='text-black text-[42px] drop-shadow-3xl cursor-default'>Doresti sa parasesti acest cont?</h1>
+                   {/* EMAILUL*/}     <a href=''><small className='text-black drop-shadow-3xl rounded-full bg-red-400 p-2 font-bold'>Apasa aici</small></a>
+
+                </div>
             </div>
 
         </div>
 
-        <div className='relative h-full w-1/2 bg-gray-500'>
-        <img src={registerimg} className="w-full h-full" />
-        </div>
-</div>
-</div>
-<Footer />
-</>
-    );
+<br /> <br /><br /> <br /> <br />
+        <Footer />
+        </>
+    )
 }
 
-export default Account;
+export default Contact;

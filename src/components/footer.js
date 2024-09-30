@@ -5,9 +5,9 @@ function Footer()
   return(
 <footer className="h-[200px] sm:h-[250px] w-full bg-gray-200 drop-shadow-3xl z-20 relative flex">
       <div className=" w-full h-[100px] flex items-center justify-between lg:pl-56 lg:pr-56 pl-14 pr-14">
-        <a href=""><h6 className="font-serif text-[2vw] md:text-[1rem]">Despre noi</h6></a>
-        <a href=""><h6 className="font-serif text-[2vw] md:text-[1rem]">Returnarea produselor</h6></a>
-        <a href=""><h6 className="font-serif text-[2vw] md:text-[1rem]">Termeni si conditii</h6></a>
+        <a href="/politica"><h6 className="font-serif text-[2vw] md:text-[1rem]">Despre noi</h6></a>
+        <a href="/politica"><h6 className="font-serif text-[2vw] md:text-[1rem]">Returnarea produselor</h6></a>
+        <a href="/politica"><h6 className="font-serif text-[2vw] md:text-[1rem]">Termeni si conditii</h6></a>
 
       </div>
 

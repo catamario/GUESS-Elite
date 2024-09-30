@@ -99,12 +99,12 @@ function Acasa() {
              <div className="parteprodus h-fit p-20 w-full relative z-10 flex max-[920px]:flex-col  items-center justify-center gap-[13vw]" id="produse">
                 {PRODUCTS.map((product) => 
                 (
-                <div key={product.id} className="bg-white drop-shadow-3xl h-[300px] w-[215px] flex flex-col items-center justify-center hover:scale-105 ease-in-out duration-300">
+                <a href='/produs'><div key={product.id} className="bg-white drop-shadow-3xl h-[300px] w-[215px] flex flex-col items-center justify-center hover:scale-105 ease-in-out duration-300">
                     <img src={product.productImage} alt={product.productName} className="w-auto h-[200px]" />
                     <h2 className="text-xl font-bold cursor-pointer">{product.productName}</h2>
                     <p className="text-gray-700 absolute right-0 bottom-0">{product.price} LEI</p>
                     <div className=' absolute bottom-0 left-0 flex'><img src={check} alt='bifa' className='h-[20px] w-[25px]' /> <p className='text-green-400'>in stoc</p></div>
-                </div>))}
+                </div></a>))}
             </div>
 
             <Footer />

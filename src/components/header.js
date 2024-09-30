@@ -63,7 +63,7 @@ function Header() {
 
       <div id="tabs" className="taburi min-[640px]:flex max-[640px]:hidden items-center w-full text-[#535353]        max-[639px]:absolute max-[639px]:w-full max-[639px]:text-center max-[639px]:justify-between       max-[640px]:top-[150px]        max-[640px]:pl-10 max-[640px]:pr-10 z-40">
         <a href="/acasa" className="min-[640px]:ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Acasa</a>
-        <a href="/acasa#produse" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Produse</a>
+        <a href="/produs" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Produse</a>
         <a href="/politica" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Politica</a>
         <a href="/contact" className="ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Contact</a>
       </div>
@@ -76,7 +76,7 @@ function Header() {
             className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 hover:scale-125 "  
           />
         </a>
-        <a href="/account">
+        <a href="/login">
           <img 
             src={account} 
             alt="Account" 
