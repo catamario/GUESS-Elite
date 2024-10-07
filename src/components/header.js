@@ -76,7 +76,7 @@ function Header() {
             className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 hover:scale-125 "  
           />
         </a>
-        <a href="/login">
+        <a href="/account">
           <img 
             src={account} 
             alt="Account" 

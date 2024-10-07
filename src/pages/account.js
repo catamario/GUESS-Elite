@@ -1,20 +1,38 @@
 import Header from '../components/header.js';
 import Footer from '../components/footer.js';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Contact()
-{
-    const [email, setEmail] = useState('');
+import { getAuth, signOut } from "firebase/auth";
 
+
+function Account() {
+    const navigate = useNavigate();
+
+    // Verificăm dacă utilizatorul este autentificat
     useEffect(() => {
-        // Preia email-ul din URL
-        const params = new URLSearchParams(window.location.search);
-        const emailParam = params.get('email');
-        if (emailParam) {
-            setEmail(emailParam);
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            // Redirecționează la login dacă nu există token
+            navigate('/login');
         }
-    }, []);
+    }, [navigate]);
+
+    const handleLogout = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            // Logout-ul a fost efectuat cu succes
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userEmail');
+            window.location.href = '/login';  // Redirecționează utilizatorul la pagina de login
+        }).catch((error) => {
+            console.error("Logout failed", error);
+        });
+    };
     
+
+    const userEmail = localStorage.getItem('userEmail');
+
     return(
         <>
         <Header />
@@ -25,7 +43,7 @@ function Contact()
                 <div className='text-right'>
 
                      {/* MESAJUL */}    <h1 className='text-black text-[42px] drop-shadow-3xl cursor-default'>Bine ai venit,</h1>
-                   {/* EMAILUL*/}     <small className='text-black drop-shadow-3xl'>{email}</small>
+                   {/* EMAILUL*/}     <small className='text-black drop-shadow-3xl text-xl'>{userEmail}</small>
 
                 </div>
             </div>
@@ -49,7 +67,7 @@ function Contact()
                 <div className='text-left'>
 
                      {/* MESAJUL */}    <h1 className='text-black text-[42px] drop-shadow-3xl cursor-default'>Doresti sa parasesti acest cont?</h1>
-                   {/* EMAILUL*/}     <a href=''><small className='text-black drop-shadow-3xl rounded-full bg-red-400 p-2 font-bold'>Apasa aici</small></a>
+                     <a href='' onClick={handleLogout}><small className='text-black drop-shadow-3xl rounded-full bg-red-400 p-2 font-bold'>Apasa aici</small></a>
 
                 </div>
             </div>
@@ -62,4 +80,4 @@ function Contact()
     )
 }
 
-export default Contact;
+export default Account;
