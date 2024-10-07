@@ -55,7 +55,7 @@ function Produs() {
                 {/* Secțiunea imagini */}
                 <div className="w-1/2 h-full items-end flex flex-col">
                     <img src={img1} alt="ceas" id="img1" className="min-[800px]:mr-[85px] max-[800px]:w-[200px] p-[10px]" height="250px" width="250px" />
-                    <div className="flex max-[800px]:flex-col flex-row">
+                    <div className="flex max-[800px]:flex-col flex-row bg-red-500">
                         <img src={img2} alt="ceas2" id="img2" className="h-[300px] w-[200px] p-[10px] object-cover" />
                         <img src={ceasul3} alt="ceas3" className="h-[300px] w-[200px] object-cover p-[10px]" />
                     </div>
