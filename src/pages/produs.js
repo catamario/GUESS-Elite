@@ -51,11 +51,11 @@ function Produs() {
     return (
         <>
             <Header />
-            <div className="bg-[rgba(202,212,212,0.75)] flex w-screen h-fit pt-[100px] pb-[100px]">
+            <div className="bg-[rgba(202,212,212,0.75)] flex  w-screen h-fit pt-[100px] pb-[100px]">
                 {/* Secțiunea imagini */}
                 <div className="w-1/2 h-full items-end flex flex-col">
-                    <img src={img1} alt="ceas" id="img1" className="mr-[85px] p-[10px]" height="250px" width="250px" />
-                    <div className="flex">
+                    <img src={img1} alt="ceas" id="img1" className="min-[800px]:mr-[85px] max-[800px]:w-[200px] p-[10px]" height="250px" width="250px" />
+                    <div className="flex max-[800px]:flex-col flex-row">
                         <img src={img2} alt="ceas2" id="img2" className="h-[300px] w-[200px] p-[10px] object-cover" />
                         <img src={ceasul3} alt="ceas3" className="h-[300px] w-[200px] object-cover p-[10px]" />
                     </div>
