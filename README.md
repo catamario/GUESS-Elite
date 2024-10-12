@@ -1,2 +1,0 @@
-# GUESS-Elite
-GUESS Elite
