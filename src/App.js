@@ -5,6 +5,7 @@ import Login from './pages/login.js';
 import Register from './pages/register.js';
 import Account from './pages/account.js';
 import Produs from './pages/produs.js';
+import Checkout from './pages/checkout.js';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function Totalmente()
@@ -20,6 +21,7 @@ return(
       <Route path='/register' element = {<Register />} />
       <Route path='/account' element = {<Account />} />
       <Route path='/produs' element = {<Produs />} />
+      <Route path='/checkout' element = {<Checkout />} />
     </Routes>
   </BrowserRouter>
 );
