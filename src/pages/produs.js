@@ -51,15 +51,23 @@ function Produs() {
     };
 
 
+    const [products, setProducts] = useState(); 
     useEffect(() => {
         if (!localStorage.getItem("products")) {
             localStorage.setItem("products", JSON.stringify(PRODUCTS));
+            setProducts(localStorage.setItem("products", JSON.stringify(PRODUCTS)));
         }
-    });
+        else
+        {
+            setProducts(JSON.parse(localStorage.getItem("products")));
+        }
+    }, []);
 
 
 const popup = document.getElementById('popup');
-const products = JSON.parse(localStorage.getItem("products")) || [];
+
+
+
 const [IsPopupVisible, setIsPopupVisible] = useState(false);
 const [isPopupFadingIn, setIsPopupFadingIn] = useState(false);
     const buyNow = () => {
@@ -80,11 +88,6 @@ const [isPopupFadingIn, setIsPopupFadingIn] = useState(false);
                 productKey = PRODUCTS[2];
                 products[2].inCart=true;
             }
-
-                console.log(productKey.productName);
-                console.log(productKey.inCart);
-                console.log(PRODUCTS[1].inCart);
-                console.log(PRODUCTS[2].inCart); // Afișează numele produsului
 
         // Aici poți adăuga logica pentru a adăuga produsul în coș folosind productKey
         localStorage.setItem("products", JSON.stringify(products));    

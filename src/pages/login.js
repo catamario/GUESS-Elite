@@ -26,7 +26,7 @@ function Login() {
                 // Obține tokenul de autentificare
                 user.getIdToken().then((token) => {
                     // Stochează tokenul în localStorage
-                    const timpexpirare= Date.now() + 3600*1000;
+                    const timpexpirare = Date.now() + 3600 * 1000;
                     localStorage.setItem('tokenExpiration', timpexpirare)
                     localStorage.setItem('authToken', token);
                     localStorage.setItem('userEmail', user.email);
@@ -38,14 +38,14 @@ function Login() {
                 setError("Adresa email sau parola greșită");
             });
     };
-    
+
     //    LOGARE CU FIREBASE//    LOGARE CU FIREBASE//  LOGARE CU FIREBASE
 
     const [isOpen, setIsOpen] = useState(false);
     const onClose = (e) => {
         e.preventDefault();
         setIsOpen(false); // Setează overlay-ul pe "invisibil"
-      };
+    };
     const onOpen = (e) => {
         e.preventDefault();
         setIsOpen(true); // Setează overlay-ul pe "visibil"
@@ -67,29 +67,29 @@ function Login() {
             <Header />
             {error && <p className="font-bold text-red-700 absolute top-[170px] left-1/2 translate-x-[-50%] bg-red-950 rounded">{error}</p>}
             {isOpen && (<div className="fixed inset-0 bg-[rgba(75,85,99,0.5)] flex justify-center items-center z-50" onClick={onClose}>
-            <div className="bg-white relative p-6 rounded drop-shadow-3xl w-full max-w-md" onClick={(e) => e.stopPropagation()}>
-                <button className="absolute top-0 right-0 font-bold text-xl" onClick={onClose}>
-                    &times;
-                </button>
-                <h2 className="text-xl mb-4">Recuperare parolă</h2>
-                        <form onSubmit={handlePasswordReset}>
-                            <input 
-                                type="email" 
-                                value={resetEmail}
-                                onChange={(e) => setResetEmail(e.target.value)} 
-                                placeholder="Introdu adresa de email"
-                                className="bg-gray-200 w-full h-10 mb-3 drop-shadow-3xl rounded border-[#844E19] border-b-2 text-sm md:text-base"
-                                required
-                            />
-                            <input 
-                                type="submit" 
-                                value="Trimite email de resetare"
-                                className="bg-[#844E19] h-[50px] rounded text-center font-bold w-full mt-2 md:mt-10" 
-                            />
-                        </form>
-                        {message && <p className="mt-4 text-sm text-center">{message}</p>}
-            </div>
-        </div> )}
+                <div className="bg-white relative p-6 rounded drop-shadow-3xl w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+                    <button className="absolute top-0 right-0 font-bold text-xl" onClick={onClose}>
+                        &times;
+                    </button>
+                    <h2 className="text-xl mb-4">Recuperare parolă</h2>
+                    <form onSubmit={handlePasswordReset}>
+                        <input
+                            type="email"
+                            value={resetEmail}
+                            onChange={(e) => setResetEmail(e.target.value)}
+                            placeholder="Introdu adresa de email"
+                            className="bg-gray-200 w-full h-10 mb-3 drop-shadow-3xl rounded border-[#844E19] border-b-2 text-sm md:text-base"
+                            required
+                        />
+                        <input
+                            type="submit"
+                            value="Trimite email de resetare"
+                            className="bg-[#844E19] h-[50px] rounded text-center font-bold w-full mt-2 md:mt-10"
+                        />
+                    </form>
+                    {message && <p className="mt-4 text-sm text-center">{message}</p>}
+                </div>
+            </div>)}
             <div className='w-full h-[539px] relative flex items-center justify-center'>
                 <div className='relative flex md:w-[800px] md:h-[400px] max-[768px]:h-[300px] w-[400px] rounded-xl drop-shadow-3xl'>
                     <div className='relative flex flex-col h-full w-1/2 bg-gray-300 items-center'>
@@ -97,7 +97,7 @@ function Login() {
                         <div className='relative flex flex-col w-3/4 h-52 mt-2 md:mt-10'>
                             <form onSubmit={handleLogin}>
                                 <input type='email' value={loginData.email}
-                                    onChange={e => setLoginData({ ...loginData, email: e.target.value })} 
+                                    onChange={e => setLoginData({ ...loginData, email: e.target.value })}
                                     placeholder='&#9993; Enter your email'
                                     className='bg-gray-200 w-full h-10 mb-3 drop-shadow-3xl rounded border-[#844E19] border-b-2 text-sm md:text-base'
                                     required />

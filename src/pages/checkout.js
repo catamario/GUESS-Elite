@@ -35,11 +35,11 @@ function Checkout(){
 
                     <div className='bg-white flex flex-col h-fit w-full'>
                         <div className='bg-transparent flex flex-col relative h-[300px] w-full mt-5 border-2 border-[#D9D9D9] shadow-2xl drop-shadow-3xl'>
-                            <h1 className='text-black text-3xl'>Ai {products.filter(product => product.inCart).length} produse in cos</h1>
+                            <h1 className='text-black text-3xl'>Ai {products && products.filter(product => product.inCart).length} produse in cos</h1>
 
                                 {/* aici mapping la produse*/}
                                 <div className='obiecte relative bg-transparent w-full h-full flex-grow flex flex-col lg:flex-row lg:overflow-y-hidden pb-10 lg:gap-40 lg:justify-center items-center overflow-y-scroll'>
-                                    {products.filter(product => product.inCart).map((product) => {
+                                    {products && products.filter(product => product.inCart).map((product) => {
                                         return (
                                             <div key={product.id} className="bg-white relative drop-shadow-3xl h-[150px] w-[315px] flex flex-col items-center justify-center hover:scale-105 ease-in-out duration-300 m-6">
                                                 <img src={product.productImage} alt={product.productName} className="w-auto h-[100px]" />
@@ -51,7 +51,7 @@ function Checkout(){
                                 </div>
                                 {/* aici mapping la produse*/}
 
-                            <div className='bg-[#D9D9D9] flex absolute bottom-0 h-[40px] w-full text-center justify-center items-center'><h2 className='text-black font-italianno text-2xl font-bold right-2 absolute'>Total: {products.filter(product => product.inCart).reduce((total, product) => total+product.price, 0)}</h2></div>
+                            <div className='bg-[#D9D9D9] flex absolute bottom-0 h-[40px] w-full text-center justify-center items-center'><h2 className='text-black font-italianno text-2xl font-bold right-2 absolute'>Total: {products && products.filter(product => product.inCart).reduce((total, product) => total+product.price, 0)}</h2></div>
                         </div>
 
                 

@@ -1,4 +1,4 @@
-import search from '../SURSE/search.png';
+import searchpng from '../SURSE/search.png';
 import account from '../SURSE/account.png'
 import cart from '../SURSE/cart.png'
 import menu from '../SURSE/menu.png'
@@ -29,7 +29,7 @@ function Header() {
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);
     useEffect(() => {
       setProducts(JSON.parse(localStorage.getItem("products")));
-    })
+    }, [products])
 
     const eliminaProdus = (productId) => {
       const respectiv = products.find(product => product.id === productId);
@@ -52,34 +52,47 @@ function Header() {
     
 
     useEffect(() => { 
-      if (products.some(product => product.inCart === true))
+      if (products && products.some(product => product.inCart === true))
       {
         setIsProductInCart(true);
       }
       else
       {
         setIsProductInCart(false);
-      }
-      console.log(products);
-      console.log(isProductInCart)})
-
-    useEffect(() => {
+      }})
 
 
-      let meniu = document.getElementById('butonmeniu');
+      let search = document.getElementById('search');
+
+
+/* MINI MENU MINI MENU MINI MENU */
       let mini = document.getElementById('minimenu');
       let navigatie = document.getElementById('tabs');
-      meniu.addEventListener('click', () => {
+      const mini_click = () => {
         if(window.innerWidth <= 640 && mini.classList.contains('hidden'))
-           {mini.classList.remove('hidden');
-             mini.classList.add('flex');
+           {
+            mini.classList.remove('hidden');
+            mini.classList.add('flex');
             navigatie.classList.remove('max-[640px]:hidden');
-            navigatie.classList.add('max-[640px]:flex');}
+            navigatie.classList.add('max-[640px]:flex');
+            if(search.classList.contains('top-[130px]'))
+            {
+              search.classList.remove('top-[130px]');
+              search.classList.add('top-[190px]');
+            }
+          }
         else  
-        {mini.classList.remove('flex');
+        {
+           mini.classList.remove('flex');
            mini.classList.add('hidden');
            navigatie.classList.remove('max-[640px]:flex');
-           navigatie.classList.add('max-[640px]:hidden');}
+           navigatie.classList.add('max-[640px]:hidden');
+           if(search.classList.contains('top-[190px]'))
+            {
+              search.classList.remove('top-[190px]');
+              search.classList.add('top-[130px]');
+            }
+          }
 
 
            window.addEventListener('resize', () => 
@@ -90,26 +103,58 @@ function Header() {
                 mini.classList.add('hidden');
                 navigatie.classList.remove('max-[640px]:flex');
                 navigatie.classList.add('max-[640px]:hidden');
+                if(!search.classList.contains('hidden'))
+                  {
+                    search.classList.remove('flex');
+                    search.classList.add('hidden');
+                  }
               }
             });
-      });
-
-
-      return () => {
-        meniu.addEventListener('click', () => {
-          if(window.innerWidth <= 640 && mini.classList.contains('hidden')) 
-            {mini.classList.remove('hidden');
-               mini.classList.add('flex');}
-          else  
-          {mini.classList.remove('flex');
-             mini.classList.add('hidden');}
-        })
       };
-    })
+/* MINI MENU MINI MENU MINI MENU */
+
+/* SEARCH MENU SEARCH MENU SEARCH MENU */
+
+const search_click = () => 
+{
+      if( search.classList.contains('hidden'))
+          {
+           search.classList.remove('hidden');
+           search.classList.add('flex');
+           if(!mini.classList.contains('hidden') && search.classList.contains('top-[130px]'))
+           {
+            search.classList.remove('top-[130px]');
+            search.classList.add('top-[190px]');
+           }
+           else if(mini.classList.contains('hidden') && search.classList.contains('top-[190px]'))
+           {
+            search.classList.remove('top-[190px]');
+            search.classList.add('top-[130px]');
+           }
+          }
+      else  
+          {
+           search.classList.remove('flex');
+           search.classList.add('hidden');
+          }
+}
 
 
 
 
+const [searchQuery, setSearchQuery] = useState('');
+const handleSearch = (event) => {
+  setSearchQuery(event.target.value);
+};
+const filteredProducts = searchQuery ?
+products.filter(product =>
+  product.productName.toLowerCase().includes(searchQuery.toLowerCase()))
+  :
+[];
+
+
+
+/* SEARCH MENU SEARCH MENU SEARCH MENU */
 
     return (
       <>
@@ -118,7 +163,32 @@ function Header() {
         <a href="/acasa"><h1 className="font-italianno sm:text-[3.5vw] text-[36px]">GUESS Elite</h1></a>
       </div>
   
+      
       <div className="bg-white hidden fixed top-[130px] w-full h-[60px] shadow-inner z-30" id="minimenu"></div>
+
+      <div className="bg-white flex flex-col hidden fixed top-[130px] w-full h-fit shadow-inner z-30" id="search">
+        
+        
+        <div className="bg-white relative flex flex-col fixed w-full h-[60px] shadow-inner z-30">
+          <input 
+          type='text'
+          placeholder='Search...'
+          value={searchQuery}
+          onChange={handleSearch} 
+          className='relative h-full w-full pl-2 pr-2 border-[1.5px] text-center border-black'></input>
+        </div>
+
+        <div className='bg-white flex flex-col w-full h-fit items-center'>
+        {filteredProducts && filteredProducts.map((product) =>
+                (
+                <a href='/produs'><div key={product.id} className="bg-white relative drop-shadow-3xl h-[50px] w-[250px] flex flex-col items-center justify-center hover:scale-105 ease-in-out duration-300 m-3 rounded-full">
+                    <h2 className="text-md font-bold cursor-pointer text-lg">{product.productName}</h2><br />
+                    <p className="text-gray-700 absolute right-3 bottom-0">{product.price} LEI</p>
+                </div></a>))}
+         </div>
+      
+      
+      </div>
 
       <div id="tabs" className="taburi min-[640px]:flex max-[640px]:hidden items-center w-full text-[#535353]        max-[639px]:absolute max-[639px]:w-full max-[639px]:text-center max-[639px]:justify-between       max-[640px]:top-[150px]        max-[640px]:pl-10 max-[640px]:pr-10 z-40">
         <a href="/acasa" className="min-[640px]:ml-[5vw] xl:text-[32px] min-[640px]:text-[22px] text-[18px] cursor-pointer hover:scale-110 transition xl:ml-[150px]">Acasa</a>
@@ -128,13 +198,14 @@ function Header() {
       </div>
   
       <div className="icons w-[250px] h-full ml-auto flex items-center justify-center">
-      <a href="">
+      
           <img 
-            src={search} 
+            src={searchpng} 
             alt="Search" 
             className="md:w-[25px] w-[15px] md:h-[25px] h-[15px] mr-2.5 hover:scale-125 "  
+            onClick={search_click}
           />
-        </a>
+        
         <a href="/account">
           <img 
             src={account} 
@@ -157,6 +228,7 @@ function Header() {
             alt="Menu" 
             className="h-[50px] w-[50px] sm:hidden"
             id="butonmeniu"
+            onClick={mini_click}
           />
         
       </div>
@@ -171,12 +243,12 @@ function Header() {
         <div className='texturi relative bg-transparent h-fit w-full pl-9 pt-3'>
           <h1 onClick={inchideCART} className=" absolute right-2 top-0 font-italianno lg:text-[3.5vw] text-[36px] text-black drop-shadow-3xl cursor-pointer z-50">&times;</h1>
           <h1 className="font-italianno lg:text-[3.5vw] text-[36px] text-black drop-shadow-3xl cursor-default">Cosul meu</h1>
-          <h1 className="font-italianno lg:text-[2vw] text-[36px] text-black drop-shadow-3xl cursor-default">{products.filter(product => product.inCart).length} items</h1>
+          <h1 className="font-italianno lg:text-[2vw] text-[36px] text-black drop-shadow-3xl cursor-default">{products && products.filter(product => product.inCart).length} items</h1>
        </div>
 
 
           <div className={`obiecte relative bg-gray-200 z-40 w-full flex-grow flex flex-col lg:flex-row lg:justify-center items-center p-6 overflow-y-scroll overflow-x-hidden ${delayLista ? 'visible' : 'hidden'}`}>
-          {products.filter(product => product.inCart).map((product) =>
+          {products && products.filter(product => product.inCart).map((product) =>
                 (
                 <div key={product.id} className="bg-white relative drop-shadow-3xl h-[200px] min-[1518px]:h-[150px] w-[250px] flex flex-col items-center justify-center hover:scale-105 ease-in-out duration-300 m-6">
                     <img src={product.productImage} alt={product.productName} className="w-auto h-[100px]" />
@@ -190,7 +262,7 @@ function Header() {
 
         <div className='checkout relative flex h-1/6 w-full bg-white'>
                 <div className=' TOTAL h-full w-1/2 relative flex items-center justify-center '>
-                <h1 className='font-bold md:text-2xl text-sm font-serif'>{products.filter(product => product.inCart).reduce((total, product) => total + product.price, 0)} LEI</h1>
+                <h1 className='font-bold md:text-2xl text-sm font-serif'>{products && products.filter(product => product.inCart).reduce((total, product) => total + product.price, 0)} LEI</h1>
                 </div>
                 <div className=' CONTINUA h-full w-1/2 h-1/2 relative flex items-center justify-center'>
                 <button><div className=' relative flex h-[50px] w-fit pl-2 pr-2 w-1/2 bg-gray-300 rounded drop-shadow-3xl items-center justify-center border-1 border-gray-400'>
