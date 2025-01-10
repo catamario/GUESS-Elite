@@ -14,3 +14,9 @@
     </td>
   </tr>
 </table>
+| **Feature**                  | **Description**                                                                                                                                                                                                                                      |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Responsive UI Design**      | Utilized **React** and **Tailwind CSS** to build a responsive, accessible user interface based on designs from **Figma**. The interface dynamically adjusts to various screen sizes and maintains a consistent, polished aesthetic, ensuring an intuitive user experience across devices. |
+| **E-commerce Features**       | Developed key e-commerce functionalities in **JavaScript**, including product listing, an add-to-cart feature, and local storage management. These features enhance user interaction by enabling seamless browsing, product selection, and persistent cart data across sessions.         |
+| **Authentication System**     | Implemented user authentication and registration using **Node.js** and **MongoDB**, with exploratory integration of **Firebase** for alternative authentication solutions. This ensures secure access for users and robust handling of credentials.                                       |
+| **Persistent Cart Functionality** | Integrated **localStorage** to save user cart data, enabling features such as adding, removing, and updating products. Support for product variants like size and color ensures user preferences are preserved and reflected when revisiting the site.                                   |
