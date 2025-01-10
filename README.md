@@ -6,12 +6,12 @@
  point in honing my skills and understanding the structure of a well-executed project. |
 <table align="center">
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/077b6e54-95e7-43a6-a58d-34ec6213bfeb" width="400" />
+    <td><img src="https://github.com/user-attachments/assets/077b6e54-95e7-43a6-a58d-34ec6213bfeb" />
     <p style="text-align:center;">Products listing</td>
   </tr>
   <tr>
     <td colspan="2">
-      <img src="https://github.com/user-attachments/assets/49ef5ffc-069b-4810-a136-3272f389c235" width="400" />
+      <img src="https://github.com/user-attachments/assets/49ef5ffc-069b-4810-a136-3272f389c235"/>
       <p style="text-align:center;">Cart</p>
     </td>
   </tr>
